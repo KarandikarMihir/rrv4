@@ -6,34 +6,15 @@ const App = () => (
         <div>
             <ul>
                 <li><Link to="/">{'Home'}</Link></li>
-                <li><Link to="/about">{'About'}</Link></li>
-                <li><Link to="/topics">{'Topics'}</Link></li>
+                <li><Link to="/netflix">{'Netflix'}</Link></li>
+                <li><Link to="/amazon">{'Amazon'}</Link></li>
+                <li><Link to="/pirate-bay">{'Pirate Bay'}</Link></li>
             </ul>
-            <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/topics" component={Topics} />
+            <Route path="/:service" component={Param} />
         </div>
     </BrowserRouter>
 )
 
-const Home = () => <h1>{'Home'}</h1>
-const About = () => <h1>{'About'}</h1>
-const Topics = ({ match }) => (
-    <div>
-        <h1>{'Topics'}</h1>
-        <ul>
-            <li><Link to={`${match.url}/rendering-with-react`}>{'Rendering with React'}</Link></li>
-            <li><Link to={`${match.url}/components`}>{'Components'}</Link></li>
-            <li><Link to={`${match.url}/props-vs-state`}>{'Props Vs. State'}</Link></li>
-        </ul>
-        <Route path={`${match.url}/:topicId`} component={Topic} />
-        <Route exact path={match.url} render={() => <h1>{'Please select a topic.'}</h1>} />
-    </div>
-)
-
-const Topic = (props) => {
-    console.log(props) // { history, location, match }
-    return <h1>{props.match.params.topicId}</h1>
-}
+const Param = ({ match }) => <h1>{match.params.service}</h1>
 
 export default App

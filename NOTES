@@ -1,3 +1,0 @@
-Wrap routes with <BrowserRouter />
-Props injected to a route- `history`, `location` `match`
-history has methods like `go()`, `goBack()`, `push()`, `listen()`
