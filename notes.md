@@ -1,1 +1,7 @@
-- URL params are passed down to the route via `props.match.params`.
+- `authService` is a fake authentication service.
+- `ProtectedRoute` is a wrapper component that conditionally renders `Component` and `Redirect`.
+- Login and Logout buttons are also rendered conditionally.
+- After logging out gibberish in the console, I found out that all of the routes are re-rendered, everytime the URL changes.
+- Login and Logout buttons are displayed/hidden upon each re-rendering of `<BrowserRouter />`.
+- `withRouter` (HoC) lets normal components access the `history`, `loaction` and `match` objects.
+- `to` props takes either a path (string) or an object of signature `{ pathname: '', state: {...} }`
